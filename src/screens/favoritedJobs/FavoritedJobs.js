@@ -3,22 +3,14 @@ import { Text, View, FlatList } from "react-native";
 import { useSelector } from "react-redux"
 
 import styles from "./style";
+import FavoritedJobCard from "../../components/cards/favoritedJobCard";
 
 const FavoritedJobs = () => {
 
-    const jobs = useSelector((state) => state.favoritedJobs);
-
-    console.log(jobs)
-
-    const renderItem = (item) => {
-
-        return (
-            <Text>{ }</Text>
-        )
-    }
+    const favoritedJobList = useSelector((state) => state.favoritedJobs);
 
     return (
-        <FlatList data={jobs} renderItem={({ item }) => { return (<Text>{item}</Text>) }} />
+        <FlatList data={favoritedJobList} renderItem={({ item }) => { return (<FavoritedJobCard id={item} />) }} />
     )
 }
 

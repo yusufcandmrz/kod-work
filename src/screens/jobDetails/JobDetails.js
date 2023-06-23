@@ -19,7 +19,6 @@ const JobDetails = ({ route }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(jobId)
         axios
             .get(`https://www.themuse.com/api/public/jobs/${jobId}`)
             .then(function (response) {
