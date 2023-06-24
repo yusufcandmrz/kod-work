@@ -32,8 +32,13 @@ const JobDetails = ({ route }) => {
 
     useEffect(() => {
         if (jobDetails) {
-            setJobLocation(jobDetails.locations[0].name);
-            setJobLevel(jobDetails.levels[0].name);
+            if (jobDetails.locations.length > 0) {
+                setJobLocation(jobDetails.locations[0].name);
+            }
+            if (jobDetails.levels > 0) {
+
+                setJobLevel(jobDetails.levels[0].name);
+            }
         }
     }, [jobDetails])
     const handleSubmit = () => {
