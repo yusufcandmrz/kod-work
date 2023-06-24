@@ -4,7 +4,7 @@ import styles from "./style"
 const Button = (props) => {
     return (
         <TouchableOpacity onPress={props.onPress} style={styles.button}>
-            <Text>{props.buttonTitle}</Text>
+            <Text style={styles.buttonText}>{props.buttonTitle}</Text>
         </TouchableOpacity>
     )
 }

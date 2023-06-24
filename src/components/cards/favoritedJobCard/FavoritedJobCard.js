@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { Text, View, Alert } from "react-native";
 import { useDispatch } from "react-redux";
 import { removeFavoriteJob } from "../../../store";
 
@@ -40,15 +40,16 @@ const FavoritedJobCard = (props) => {
 
     function handleButton() {
         dispatch(removeFavoriteJob(id))
+        Alert.alert("Success", "Job has been removed from your favorites.");
     }
 
     return (
         <View style={styles.container}>
             {!!jobDetails && (
                 <View>
-                    <Text>{jobName}</Text>
-                    <Text>{jobLocation}</Text>
-                    <Text>{jobLevel}</Text>
+                    <Text style={styles.name}>{jobName}</Text>
+                    <Text style={styles.location}>{jobLocation}</Text>
+                    <Text style={styles.level}>{jobLevel}</Text>
                     <Button onPress={handleButton} buttonTitle="Remove" />
                 </View>
             )}

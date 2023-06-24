@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, ScrollView, View, ActivityIndicator, useWindowDimensions } from "react-native"
+import { Text, ScrollView, View, ActivityIndicator, useWindowDimensions, Alert } from "react-native"
 import axios from "axios";
 import HTML from "react-native-render-html"
 import { useDispatch } from "react-redux"
@@ -35,18 +35,19 @@ const JobDetails = ({ route }) => {
             if (jobDetails.locations.length > 0) {
                 setJobLocation(jobDetails.locations[0].name);
             }
-            if (jobDetails.levels > 0) {
+            if (jobDetails.levels.length > 0) {
 
                 setJobLevel(jobDetails.levels[0].name);
             }
         }
     }, [jobDetails])
     const handleSubmit = () => {
-        console.log("button clicked");
+        Alert.alert("Success", "Your job application has been submitted successfully.");
     }
 
     const handleFavoriteJob = () => {
         dispatch(addFavoriteJob(jobId))
+        Alert.alert("Success", "Job has been added to favorites.");
     }
 
     if (loading) {
@@ -58,13 +59,22 @@ const JobDetails = ({ route }) => {
     }
     return (
         <ScrollView>
-            <View>
+            <View style={styles.container}>
                 {jobDetails &&
                     <View>
-                        <Text>{jobDetails.name}</Text>
-                        <Text> {jobLocation}</Text>
-                        <Text>{jobLevel}</Text>
-                        <HTML source={{ html: jobDetails.contents }} contentWidth={width} />
+                        <Text style={styles.name}>{jobDetails.name}</Text>
+                        <View style={styles.group}>
+                            <Text style={styles.groupTitle}>Location: </Text>
+                            <Text style={styles.groupValue}>{jobLocation}</Text>
+                        </View>
+                        <View style={styles.group}>
+                            <Text style={styles.groupTitle}>Level: </Text>
+                            <Text style={styles.groupValue}>{jobLevel}</Text>
+                        </View>
+                        <Text style={styles.detailsTitle}>Job Detail</Text>
+                        <View style={styles.detailsValue}>
+                            <HTML source={{ html: jobDetails.contents }} contentWidth={width} />
+                        </View>
                     </View>
                 }
             </View >
@@ -72,7 +82,7 @@ const JobDetails = ({ route }) => {
                 <Button onPress={handleSubmit} buttonTitle="Submit" />
                 <Button onPress={handleFavoriteJob} buttonTitle="Favorite Job" />
             </View>
-        </ScrollView>
+        </ScrollView >
     )
 }
 

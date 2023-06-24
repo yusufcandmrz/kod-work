@@ -16,16 +16,32 @@ const App = () => {
     const MainComponent = () => {
         return (
             <Stack.Navigator>
-                <Stack.Screen name="Job List" component={Jobs} />
-                <Stack.Screen name="Job Details" component={JobDetails} />
+                <Stack.Screen name="Job List" component={Jobs} options={{
+                    headerTitleAlign: "center",
+                    headerTitleStyle: {
+                        color: "#F4364C",
+                    },
+                    headerStyle: {
+                        backgroundColor: "white",
+                    },
+                }} />
+                <Stack.Screen name="Job Details" component={JobDetails} options={{
+                    headerTitleAlign: "center",
+                    headerTitleStyle: {
+                        color: "#F4364C",
+                    },
+                    headerStyle: {
+                        backgroundColor: "white",
+                    },
+                }} />
             </Stack.Navigator>
         )
     }
     return (
         <NavigationContainer>
             <Drawer.Navigator>
-                <Drawer.Screen name="Jobs" component={MainComponent} />
-                <Drawer.Screen name="Favorited Jobs" component={FavoritedJobs} />
+                <Drawer.Screen name="Jobs" component={MainComponent} options={{ headerShown: false }} />
+                <Drawer.Screen name="Favorited Jobs" component={FavoritedJobs} options={{ headerShown: false }} />
             </Drawer.Navigator>
         </NavigationContainer>
     )

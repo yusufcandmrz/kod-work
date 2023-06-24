@@ -28,9 +28,9 @@ const JobCard = (props) => {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={goToJobDetails}>
-                <Text>{name}</Text>
-                <Text>{jobLocation}</Text>
-                <Text>{jobLevel}</Text>
+                <Text style={styles.name}>{name}</Text>
+                <Text style={styles.location}>{jobLocation}</Text>
+                <Text style={styles.level}>{jobLevel}</Text>
             </TouchableOpacity>
         </View>
     )

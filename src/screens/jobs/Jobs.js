@@ -36,7 +36,7 @@ const Jobs = () => {
     }
 
     return (
-        <View>
+        <View style={styles.container}>
             <FlatList data={jobList} renderItem={renderItem} />
         </View>
     )
