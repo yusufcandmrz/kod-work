@@ -16,6 +16,8 @@ Acaba nasıl?
 
 Haydi bakalım, rasgele! :)
 
+API Linki: https://www.themuse.com/developers/api/v2
+
 Ekran Görüntüleri:
 ![Screenshot_1687636499](https://github.com/yusufcandmrz/kod-work/assets/93606208/9bb1a72c-32c7-4b52-a5d6-6ab09bca2a10)
 ![Screenshot_1687636509](https://github.com/yusufcandmrz/kod-work/assets/93606208/b426e88a-2335-4fde-95ae-54dcec1f4f67)
